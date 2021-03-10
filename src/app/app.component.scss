@@ -1,0 +1,13 @@
+.top-bar {
+    background-color: rgb(237, 96, 76);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .is-admin {
+      color: white;
+      margin-right: 18px;
+    }
+}

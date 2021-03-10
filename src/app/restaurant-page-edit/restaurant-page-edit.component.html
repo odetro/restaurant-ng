@@ -1,0 +1,20 @@
+<div *ngIf="rest" class="restaurant-page-container">
+    <div class="image-container" style="background-image: url({{rest.image}})">
+    </div>
+    <div class="restaurant-page-details-container">
+        <div *ngIf="adminStatus" class="restaurant-page-details">
+            <h1>{{rest.name}} - Edit menu</h1>
+            <h3><input type="text" (blur)="submitManuName($event)" defaultValue={{rest.menu.name}} /></h3>
+            <div class="menu">
+                <div class="menu-item-container" *ngFor="let item of rest.menu.items, let i = index">
+                    <input type="text" (blur)="submitItemName($event, i)" defaultValue={{item.name}}  />
+                    <input type="number" (blur)="submitItemPrice($event, i)" defaultValue={{item.price.toFixed(2)}}/>
+                </div>
+            </div>
+            <button class="submitBtn" (click)="submitForm()">Submit</button>
+        </div>
+        <div *ngIf="!adminStatus">
+            <p>You do not have permissions to edit this page</p>
+        </div>
+    </div>
+</div>

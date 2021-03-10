@@ -1,0 +1,17 @@
+<main>
+    <div class="restaurants-container">
+        <div class="restaurant-item-container" *ngFor="let rest of restList">
+            <a [routerLink]="['/', rest.name+'-'+rest._id]">
+                <div class="image-container" style="background-image: url({{rest.image}})">
+                </div>
+                <div class="restaurant-details">
+                    <h2 class="restaurant-name">{{rest.name}}</h2>
+                    <ul class="restaurant-item">
+                        <li> {{ rest.address }} </li>
+                        <li> {{ rest.telephone }} </li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,21 @@
+<div *ngIf="rest" class="restaurant-page-container">
+    <div class="image-container" style="background-image: url({{rest.image}})">
+    </div>
+    <div class="restaurant-page-details-container">
+        <div class="restaurant-page-details">
+            <h1>{{rest.name}}</h1>
+            <h3>{{rest.menu.name}}</h3>
+            <div class="menu">
+                <div class="menu-item-container" *ngFor="let item of rest.menu.items">
+                    <div>{{item.name}}</div>
+                    <div>{{item.price.toFixed(2)}} $</div>
+                </div>
+            </div>
+        </div>
+        <div class="editBtn-container">
+            <a [routerLink]="['/'+rest.name+'-'+rest._id+'/', 'edit']">
+                <div *ngIf="adminStatus" class="editBtn"><span>Edit</span></div>
+            </a>
+        </div>
+    </div>
+</div>
